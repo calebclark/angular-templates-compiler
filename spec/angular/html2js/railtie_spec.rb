@@ -8,7 +8,7 @@ require 'capybara/rspec'
 require 'capybara/rails'
 
 module Angular
-  module Html2js
+  module NGT
     describe Railtie, type: :feature do
       before(:each) { FileUtils.rm_rf Rails.root.join('tmp', 'cache', 'assets', 'test') }
 
@@ -35,16 +35,16 @@ module Angular
       end
 
       describe "Configuration" do
-        after { Html2js.reset_config! }
+        after { NGT.reset_config! }
 
         it "allows you to configure the module" do
-          Rails.configuration.angular_html2js.module_name = 'myRailsModule'
-          Html2js.config.module_name.should == 'myRailsModule'
+          Rails.configuration.angular_ngt.module_name = 'myRailsModule'
+          NGT.config.module_name.should == 'myRailsModule'
         end
 
         it "allows you to set the cache key" do
-          Rails.configuration.angular_html2js.cache_id { |file| "rails-#{file}" }
-          Html2js.config.cache_id.call('test').should == 'rails-test'
+          Rails.configuration.angular_ngt.cache_id { |file| "rails-#{file}" }
+          NGT.config.cache_id.call('test').should == 'rails-test'
         end
       end
     end

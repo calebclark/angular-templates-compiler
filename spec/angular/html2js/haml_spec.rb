@@ -1,7 +1,7 @@
-require 'angular/html2js/haml'
+require 'angular/ngt/haml'
 
 module Angular
-  module Html2js
+  module NGT
     describe  Haml do
       it 'has a blank mime type' do
         described_class.default_mime_type.should be_nil

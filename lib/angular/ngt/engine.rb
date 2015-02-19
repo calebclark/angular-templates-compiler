@@ -1,6 +1,6 @@
-require 'angular/html2js/template'
+require 'angular/ngt/template'
 module Angular
-  module Html2js
+  module NGT
     class Engine < Template
 
       private

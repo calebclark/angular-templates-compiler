@@ -2,7 +2,7 @@ require 'v8'
 require 'coffee-script'
 
 module Angular
-  module Html2js
+  module NGT
     TEMPLATE_HELPER = CoffeeScript.compile(File.read("spec/support/template_cache.coffee"))
   end
 end
@@ -63,7 +63,7 @@ RSpec::Matchers.define :define_module do |module_name|
 
   def modules_from(template)
     cxt = V8::Context.new
-    cxt.eval(Angular::Html2js::TEMPLATE_HELPER, "spec/helpers/template_cache.coffee")
+    cxt.eval(Angular::NGT::TEMPLATE_HELPER, "spec/helpers/template_cache.coffee")
     cxt['template'] = template
     cxt.eval('evaluateTemplate(template)')
   end

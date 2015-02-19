@@ -1,8 +1,8 @@
 require 'tilt'
-require 'angular/html2js/configuration'
+require 'angular/ngt/configuration'
 
 module Angular
-  module Html2js
+  module NGT
     class Template < Tilt::Template
       attr_accessor :file
 
@@ -11,8 +11,8 @@ module Angular
       end
 
       TEMPLATE = <<-TEMPLATE
-angular.module('%s', []).run(['$templateCache', function($templateCache) {
-  $templateCache.put('%s',
+angular.module('/templates/%s.ngt', []).run(['$templateCache', function($templateCache) {
+  $templateCache.put('%s.ngt',
   '%s');
 }]);
       TEMPLATE
@@ -26,20 +26,20 @@ angular.module('%s', []).run(['$templateCache', function($templateCache) {
     module = angular.module('%s', []);
   }
   module.run(['$templateCache', function($templateCache) {
-    $templateCache.put('%s',
+    $templateCache.put('/templates/%s.ngt',
     '%s');
   }]);
 })();
       SINGLE_MODULE_TPL
 
       def config
-        Html2js.config
+        NGT.config
       end
 
       def prepare; end
 
       def evaluate(scope, locals, &block)
-        @module_name = config.module_name
+        @module_name = config.module_name || 'App'
         @cache_id = config.cache_id || default_cache_id_proc
         @scope = scope
         if @module_name

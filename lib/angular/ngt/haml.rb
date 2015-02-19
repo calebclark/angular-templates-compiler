@@ -1,7 +1,7 @@
 require 'tilt'
 
 module Angular
-  module Html2js
+  module NGT
     class Haml < Tilt::HamlTemplate
       def default_mime_type
       end

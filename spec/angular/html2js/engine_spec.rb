@@ -1,9 +1,9 @@
 require 'spec_helper'
 require 'sprockets'
-require 'angular/html2js/engine'
+require 'angular/ngt/engine'
 
 module Angular
-  module Html2js
+  module NGT
     describe Engine do
       let(:env) do
         Sprockets::Environment.new do |env|

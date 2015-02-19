@@ -1,8 +1,8 @@
 require 'spec_helper'
-require 'angular/html2js/template'
+require 'angular/ngt/template'
 
 module Angular
-  module Html2js
+  module NGT
     describe Template do
 
       it 'should convert html to js code' do
@@ -39,11 +39,11 @@ module Angular
       end
 
       describe 'configuration' do
-        after { Html2js.reset_config! }
+        after { NGT.reset_config! }
 
         describe 'cache_id_from_scope ' do
           before do
-            Html2js.configure do |config|
+            NGT.configure do |config|
               config.cache_id { |file_path| "generated_id_for/#{file_path}" }
             end
           end
@@ -58,7 +58,7 @@ module Angular
         end
 
         describe 'module_name' do
-          before { Html2js.configure { |c| c.module_name = 'foo' } }
+          before { NGT.configure { |c| c.module_name = 'foo' } }
 
           it 'should generate code with a given module name' do
             html1 = '<span>one</span>'

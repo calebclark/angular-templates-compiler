@@ -1,8 +1,8 @@
 require 'sprockets'
-require 'angular/html2js/haml'
+require 'angular/ngt/haml'
 
 module Angular
-  module Html2js
+  module NGT
     def self.configure
       yield config
     end
@@ -41,8 +41,8 @@ module Angular
       def init_sprockets
         # hack around bug in rails assets debug mode
         # TODO: remove this once this bug is resolved: https://github.com/sstephenson/sprockets/issues/478
-        Sprockets.register_engine '.haml', Angular::Html2js::Haml
-        Sprockets.register_engine '.ngt', Angular::Html2js::Engine
+        Sprockets.register_engine '.haml', Angular::NGT::Haml
+        Sprockets.register_engine '.ngt', Angular::NGT::Engine
       end
     end
   end

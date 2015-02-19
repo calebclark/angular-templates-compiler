@@ -1,9 +1,9 @@
-# Angular-html2js <a href="http://badge.fury.io/rb/angular-html2js"><img src="https://badge.fury.io/rb/angular-html2js@2x.png" alt="Gem Version" height="18"></a>
+# Angular-ngt <a href="http://badge.fury.io/rb/angular-ngt"><img src="https://badge.fury.io/rb/angular-ngt@2x.png" alt="Gem Version" height="18"></a>
 
-Angular-html2js is based off the Karma [preprocessor](https://github.com/karma-runner/karma-ng-html2js-preprocessor)
+Angular-ngt is based off the Karma [preprocessor](https://github.com/karma-runner/karma-ng-ngt-preprocessor)
 that many Angular folks use. This gem makes your templates available through the Rails asset pipeline, Sprockets,
-or Tilt, while still acting like Karma's ng-html2js. So it should feel familiar to those already
-using ng-html2js and should be less confusing for those following instructions in online
+or Tilt, while still acting like Karma's ng-ngt. So it should feel familiar to those already
+using ng-ngt and should be less confusing for those following instructions in online
 tutorials. 
 
 Look in the usage section below for examples.
@@ -12,7 +12,7 @@ Look in the usage section below for examples.
 
 Add this line to your application's Gemfile:
 
-    gem 'angular-html2js'
+    gem 'angular-ngt'
 
 And then execute:
 
@@ -20,7 +20,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install angular-html2js
+    $ gem install angular-ngt
 
 ## Usage
 
@@ -60,12 +60,12 @@ angular.module('myApp').directive('myDirective', function($injectable){
     ```ruby
     # In Rails
     MyApp::Application.configure do
-      config.angular_html2js.module_name = 'MyApp'
+      config.angular_ngt.module_name = 'MyApp'
     end
 
     # or Any
-    Angular::Html2js.configure do |config|
-      config.angular_html2js.module_name = 'MyApp'
+    Angular::NGT.configure do |config|
+      config.angular_ngt.module_name = 'MyApp'
     end
     ```
 2.  Now just require the template before the code needing it (perhaps a directive)
@@ -105,7 +105,7 @@ angular.module('myApp').directive('myDirective', function($injectable){
     ```ruby
     # In Rails
     MyApp::Application.configure do
-      config.angular_html2js.module_name = 'MyTemplates'
+      config.angular_ngt.module_name = 'MyTemplates'
     end
     ```
 
@@ -129,12 +129,12 @@ angular.module('myApp').directive('myDirective', function($injectable){
     ```ruby
     # In Rails
     MyApp::Application.configure do
-      config.angular_html2js.module_name = 'MyTemplates'
+      config.angular_ngt.module_name = 'MyTemplates'
 
       # `file` is the full file path
       # `scope` is the Sprockets scope. This has handy things like scope.logical_path
       #
-      config.angular_html2js.cache_id {|file_path, scope|
+      config.angular_ngt.cache_id {|file_path, scope|
         "myTemplates-#{scope.logical_path}"
       }
     end
@@ -170,5 +170,5 @@ that the template files have a dependency on the application configuration and t
 5. Create new Pull Request
 
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/k3integrations/angular-html2js/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/k3integrations/angular-ngt/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
