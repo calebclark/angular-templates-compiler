@@ -11,7 +11,7 @@ module Angular
       end
 
       TEMPLATE = <<-TEMPLATE
-angular.module('/templates/%s.ngt', []).run(['$templateCache', function($templateCache) {
+angular.module('/ngtemplates/%s.ngt', []).run(['$templateCache', function($templateCache) {
   $templateCache.put('%s.ngt',
   '%s');
 }]);
@@ -26,7 +26,7 @@ angular.module('/templates/%s.ngt', []).run(['$templateCache', function($templat
     module = angular.module('%s', []);
   }
   module.run(['$templateCache', function($templateCache) {
-    $templateCache.put('/templates/%s.ngt',
+    $templateCache.put('/ngtemplates/%s.ngt',
     '%s');
   }]);
 })();
